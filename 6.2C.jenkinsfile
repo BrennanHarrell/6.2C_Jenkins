@@ -1,0 +1,123 @@
+pipeline{
+    agent any
+    environment {
+        DIRECTORY_PATH = "${env.WORKSPACE}"
+        TESTING_ENVIRONMENT = "6.2C"
+        PRODUCTION_ENVIRONMENT = "AWS EC2 instance"
+    }
+    stages{
+        stage("Build"){
+            steps{
+                echo "========Executing Build========"
+                echo "Fetch the source code from the directory path specified by the environment variable"
+                echo "Code directory path, $DIRECTORY_PATH"
+                echo "Compiling and packing code using Maven"
+
+            }
+
+            post{
+                success{
+                    echo "========Build executed successfully========"
+                }
+                failure{
+                    echo "========Build execution failed========"
+                }
+            }
+        }
+        stage("Unit and Integration Test") {
+            steps{
+                echo "========Executing Unit and Integration Test========"     
+
+                echo "Running unit testing via Selenium"
+                echo "Running unit testing via Katalon to double check it is working as intended"
+                echo "Running integration tests via Selenium"
+                echo "Running integration tests via Katalon to double check it is integrating as intended"
+                
+            }
+
+            post{
+                success{
+                    echo "========Unit and Integration Test executed successfully ========"
+                }
+                failure{
+                    echo "========Unit and Integration Test execution failed========"
+                }
+            }
+        }
+        stage("Code Analysis") {
+            steps{
+
+                echo "========Executing Code Quality Check========"
+
+                echo "Analysing code"
+            }
+
+            post{
+                success{
+                    echo "========Code Analysis executed successfully ========"
+                }
+                failure{
+                    echo "========Code Analysis execution failed========"
+                }
+            }
+        }
+
+        stage("Security Scan") {
+            steps{
+                echo "========Executing Security Scan========"
+
+                echo "Analysing code for vulnerabilities using SAST tools"
+            }
+
+            post{
+                success{
+                    echo "========Security Scan executed successfully ========"
+                }
+                failure{
+                    echo "========Security Scan execution failed========"
+                }
+            }
+        }
+
+
+        stage("Integration Tests on Staging") {
+            steps{
+                
+                echo "deploy the application to a testing environment specified by the environment variable"
+                
+                echo "Testing environment: $TESTING_ENVIRONMENT"
+                
+                echo "========Executing Integration Tests on Staging========"
+
+                echo "Running integration tests via Selenium"
+            }
+
+            post{
+                success{
+                    echo "========Integration Tests on Staging executed successfully ========"
+                }
+                failure{
+                    echo "========Integration Tests on Staging execution failed========"
+                }
+            }
+        }
+        
+        stage("Deploy to Production") {
+            steps{
+                echo "========Executing Deploy to Production========"
+            }
+
+            post{
+                success{
+                    echo "========Deploy to Production executed successfully ========"
+
+                    echo "Deploying code to $PRODUCTION_ENVIRONMENT"
+                }
+                failure{
+                    echo "========Deploy to Production execution failed========"
+                }
+            }
+        }
+    
+    }
+}
