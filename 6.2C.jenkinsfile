@@ -39,14 +39,14 @@ pipeline{
                 success{
                     mail to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
-                    body: "========Security Scan executed successfully ========"
+                    body: "========Unit and Integration Test executed successfully========"
 
-                    echo "========Unit and Integration Test executed successfully ========"
+                    echo "========Unit and Integration Test executed successfully========"
                 }
                 failure{
                     mail to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
-                    body: "========Security Scan executed successfully ========"
+                    body: "========Unit and Integration Test execution failed========"
 
                     echo "========Unit and Integration Test execution failed========"
                 }
@@ -63,7 +63,7 @@ pipeline{
             post{
                 success{
                     
-                    echo "========Code Analysis executed successfully ========"
+                    echo "========Code Analysis executed successfully========"
                 }
                 failure{
                     echo "========Code Analysis execution failed========"
@@ -85,12 +85,12 @@ pipeline{
                     subject: "Security Scan status",
                     body: "========Security Scan executed successfully ========"
 
-                    echo "========Security Scan execution failed========"
+                    echo "========Security Scan execution successfully========"
                 }
                 failure{
                     mail to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
-                    body: "========Security Scan executed successfully ========"
+                    body: "========Security Scan execution failed========"
 
                     echo "========Security Scan execution failed========"
                 }
