@@ -73,7 +73,7 @@ pipeline{
 
             post{
                 success{
-                    mail to: "s222338763@deakin.edu.au",
+                    mail to: "Brennan.Harrell@protonmail.com",
                     subject: "Security Scan  status",
                     body: "========Security Scan executed successfully ========"
                 }
