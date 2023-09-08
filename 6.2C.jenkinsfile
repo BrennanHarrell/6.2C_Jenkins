@@ -54,10 +54,10 @@ pipeline{
         }
         stage("Code Analysis") {
             steps{
-
+                
                 echo "========Executing Code Quality Check========"
 
-                echo "Analysing code"
+                echo "Analysing code via SonarQube"
             }
 
             post{
