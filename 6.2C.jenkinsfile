@@ -54,6 +54,7 @@ pipeline{
 
             post{
                 success{
+                    
                     echo "========Code Analysis executed successfully ========"
                 }
                 failure{
@@ -64,6 +65,7 @@ pipeline{
 
         stage("Security Scan") {
             steps{
+                
                 echo "========Executing Security Scan========"
 
                 echo "Analysing code for vulnerabilities using SAST tools"
@@ -71,6 +73,9 @@ pipeline{
 
             post{
                 success{
+                    mail to: "s222338763@deakin.edu.au",
+                    subject: "Security Scan  status"
+                    body: "========Security Scan executed successfully ========"
                     echo "========Security Scan executed successfully ========"
                 }
                 failure{
