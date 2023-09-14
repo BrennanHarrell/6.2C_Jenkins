@@ -81,7 +81,7 @@ pipeline{
 
             post{
                 always{
-                    mail to: "brennan.deakin@gmail.com",
+                    emailext to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
                     body: "========Security Scan executed successfully ========",
                     attachLog: true
