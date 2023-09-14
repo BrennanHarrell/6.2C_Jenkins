@@ -83,10 +83,8 @@ pipeline{
                 always{
                     mail to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
-                    body: "========Security Scan executed successfully ========"
+                    body: "========Security Scan executed successfully ========",
                     attachLog: true
-
-                    echo "========Security Scan execution successfully========"
                 }
                 failure{
                     mail to: "brennan.deakin@gmail.com",
