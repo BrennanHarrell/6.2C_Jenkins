@@ -87,9 +87,9 @@ pipeline{
                     attachLog: true
                 }
                 failure{
-                    mail to: "brennan.deakin@gmail.com",
+                    mailext to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
-                    body: "========Security Scan execution failed========"
+                    body: "========Security Scan failed ========",
                     attachLog: true
                     
                 }
