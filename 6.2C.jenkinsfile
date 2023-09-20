@@ -80,7 +80,7 @@ pipeline{
             }
 
             post{
-                always{
+                success{
                     emailext to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
                     body: "========Security Scan executed successfully ========",
@@ -90,9 +90,8 @@ pipeline{
                     mail to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
                     body: "========Security Scan execution failed========"
+                    attachLog: true
                     
-
-                    echo "========Security Scan execution failed========"
                 }
             }
         }
