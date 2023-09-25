@@ -39,13 +39,13 @@ pipeline{
                 success{
                     emailext to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
-                    body: "========Unit and Integration Test executed successfully========"
+                    body: "========Unit and Integration Test executed successfully========",
                     attachLog: true
                 }
                 failure{
                     emailext to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
-                    body: "========Unit and Integration Test execution failed========"
+                    body: "========Unit and Integration Test execution failed========",
                     attachLog: true
 
                 }
