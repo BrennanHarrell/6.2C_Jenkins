@@ -37,18 +37,17 @@ pipeline{
 
             post{
                 success{
-                    mail to: "brennan.deakin@gmail.com",
+                    emailext to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
                     body: "========Unit and Integration Test executed successfully========"
-
-                    echo "========Unit and Integration Test executed successfully========"
+                    attachLog: true
                 }
                 failure{
-                    mail to: "brennan.deakin@gmail.com",
+                    emailext to: "brennan.deakin@gmail.com",
                     subject: "Security Scan status",
                     body: "========Unit and Integration Test execution failed========"
+                    attachLog: true
 
-                    echo "========Unit and Integration Test execution failed========"
                 }
             }
         }
